@@ -10,7 +10,11 @@ const useJson = async (req, res) => {
         data.push(chunk);
       })
       req.on('end', () => {
-        req.data = JSON.parse(data);
+        try {
+          req.data = JSON.parse(data)
+        } catch (error) {
+          req.data = ""
+        }
         resolve(0);
       })
     });
