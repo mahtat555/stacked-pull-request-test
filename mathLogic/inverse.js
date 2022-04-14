@@ -16,9 +16,12 @@ const inverseModulo = (integer, modulo) => {
         [v, u] = [u - v * q, v];
     } while (r != 0);
 
+    if (a !== 1) {
+        return null;
+    }
+
     return (modulo + u) % modulo;
 }
-
 
 module.exports = {
     inverseModulo
