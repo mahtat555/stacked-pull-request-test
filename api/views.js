@@ -1,3 +1,7 @@
+const { inverseModulo } = require("../mathLogic/inverse")
+
+const prime = 109;
+
 /**
  * Error 404 not found
  */
@@ -14,9 +18,10 @@ const inverseView = (req, res) => {
   }
   // Calculate the inverse modulo
   const integer = req.data.integer;
+  const inverse = inverseModulo(integer, prime)
 
   res.writeHead(200);
-  res.json({ inverse: integer });
+  res.json({ inverse });
 }
 
 
